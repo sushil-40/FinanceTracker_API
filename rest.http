@@ -12,7 +12,7 @@ Content-Type: application/json
 {
     "name": "Sushil",
     "email": "a@a.com",
-    "password": 123
+    "password": "123"
 }
 
 ### Transactions
