@@ -1,3 +1,18 @@
 ### testing api call
 
+
+### User
+### Get user
 GET http://localhost:8000/
+
+###Post newe user
+POST http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "Sushil",
+    "email": "a@a.com",
+    "password": 123
+}
+
+### Transactions
