@@ -16,4 +16,17 @@ Content-Type: application/json
     "password": "123"
 }
 
-### Transactions
+### Transactions : all private routers
+
+
+### Post new transaction, 
+POST http://localhost:8000/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3NDI5NjM4NTUsImV4cCI6MTc0MzA1MDI1NX0.8D3htFmOoh_xcLswqYI7OPLGJ2dc-dvW-2iIYPxh18U
+
+{
+     "type": "income", 
+  "title": "salary", 
+  "amount": "44",
+  "tdate": "26-03-2025"
+}
