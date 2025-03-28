@@ -1,7 +1,7 @@
 import express from "express";
 import { getUserByEmail, insertUser } from "../models/user/UserModel.js";
 import { comparePassword, hashPassword } from "../utils/bcrypt.js";
-import { compare } from "bcrypt";
+
 import { signJWT } from "../utils/jwt.js";
 import { auth } from "../middlewares/authMiddleware.js";
 

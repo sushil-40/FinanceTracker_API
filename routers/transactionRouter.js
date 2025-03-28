@@ -12,12 +12,10 @@ const router = express.Router();
 router.post("/", async (req, res, next) => {
   try {
     const { _id } = req.userInfo;
-    console.log("test-user from transaction page", _id);
 
     //inserting userId as a new property to the transaction from userTable utilizing auth middleware
 
     req.body.userId = _id;
-    console.log(req.body);
 
     const result = await insertTransaction(req.body);
     result?._id
@@ -65,7 +63,7 @@ router.delete("/", async (req, res, next) => {
     // Perform the deletion query
 
     const result = await deleteTransactions(_id, ids);
-    console.log(ids, _id);
+
     // response
     res.json({
       status: "success",

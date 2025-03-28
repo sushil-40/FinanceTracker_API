@@ -6,7 +6,7 @@ import cors from "cors";
 // Connect DB
 conMongoDb();
 // Middlewares
-// console.log(process.env.JWT_SECRET);
+
 app.use(express.json());
 app.use(cors());
 
