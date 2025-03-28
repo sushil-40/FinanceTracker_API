@@ -14,3 +14,13 @@ export const getTransactions = (userId) => {
   }
   return TransactionSchema.find({ userId });
 };
+
+//delete
+export const deleteTransactions = (userId, idsToDelete) => {
+  return TransactionSchema.deleteMany({
+    userId,
+    _id: {
+      $in: idsToDelete,
+    },
+  });
+};
