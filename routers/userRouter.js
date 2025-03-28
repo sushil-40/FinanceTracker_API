@@ -30,15 +30,13 @@ router.post("/", async (req, res, next) => {
           message: "Error creating user, Please try again later!",
         });
   } catch (error) {
-    let msg = error.message;
-    if (msg.includes("E11000 duplicate key error collection")) {
-      msg =
+    if (error.message.includes("E11000 duplicate key error collection")) {
+      error.message =
         "this email id is already been used to create account,Please! try to login or use different email to signup!";
     }
-    res.json({
-      status: "error",
-      message: msg,
-    });
+
+    error.statusCode = 200;
+    next(error);
   }
 });
 // User Login
@@ -79,9 +77,10 @@ router.post("/login", async (req, res, next) => {
       error: "Invalid email or password",
     });
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    // res.status(500).json({
+    //   error: error.message,
+    // });
+    next(error);
   }
 });
 
@@ -98,9 +97,10 @@ router.get("/", auth, (req, res, next) => {
       user,
     });
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    // res.status(500).json({
+    //   error: error.message,
+    // });
+    next(error);
   }
 });
 

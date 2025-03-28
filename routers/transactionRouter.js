@@ -30,10 +30,7 @@ router.post("/", async (req, res, next) => {
           message: "Unable to add new transaction, tryagain later !",
         });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    next(error);
   }
 });
 
@@ -52,16 +49,13 @@ router.get("/", async (req, res) => {
       transactions,
     });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    next(error);
   }
 });
 
 // Delete transactoins;
 
-router.delete("/", async (req, res) => {
+router.delete("/", async (req, res, next) => {
   try {
     // receive ids[] and _id of user
 
@@ -78,10 +72,7 @@ router.delete("/", async (req, res) => {
       message: result.deletedCount + "TODO transaction has been deleted",
     });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    next(error);
   }
 });
 
